@@ -11,8 +11,7 @@ ENV XDEBUG_HOST host.docker.internal
 ENV XDEBUG_PORT 9000
 ENV XDEBUG_IDE_KEY PHPSTORM
 
-RUN apt-get update
-RUN apt-get upgrade -y
+RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y \
         apt-utils \
         vim \
@@ -47,6 +46,13 @@ RUN apt-get install -y \
         libmagickwand-dev \
         unixodbc \
         unixodbc-dev
+
+RUN apt-get install -y --no-install-recommends \
+        default-jre \
+        libreoffice-core \
+        libreoffice-java-common \
+        libreoffice-writer \
+        && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
 
 RUN  curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
