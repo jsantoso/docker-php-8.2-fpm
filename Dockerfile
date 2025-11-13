@@ -25,7 +25,6 @@ RUN apt-get install -y \
         libpq-dev \
         libxml2-dev \
         libz-dev \
-        libzip4 \
         libzip-dev \
         libmemcached-dev \
         libmcrypt-dev \
@@ -45,6 +44,7 @@ RUN apt-get install -y \
         mkisofs \
         dcmtk \
         libmagickwand-dev \
+        tesseract-ocr \
         unixodbc \
         unixodbc-dev
 
